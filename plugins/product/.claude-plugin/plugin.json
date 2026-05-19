@@ -1,0 +1,10 @@
+{
+  "name": "product",
+  "description": "Turn an idea into testable hypotheses, scope an MVP, and decide pivot-or-persist on a clock.",
+  "version": "0.1.0",
+  "author": { "name": "AI Trailblazers", "email": "hello@aitrailblazers.org" },
+  "homepage": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "repository": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "license": "MIT",
+  "keywords": ["product", "hypothesis", "experiment", "prd", "mvp"]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "tucson-hackathon",
+  "description": "Curated Claude Code skills for founders launching real businesses in a weekend. Built for AI Hackathon 3 (Tucson, May 23-24, 2026).",
+  "version": "0.1.0",
+  "owner": {
+    "name": "AI Trailblazers",
+    "email": "hello@aitrailblazers.org"
+  },
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "landing-pages",
+      "source": "./landing-pages",
+      "description": "Ship a live, branded landing page in under an hour — fake-door pages, conversion audits, one-command deploy.",
+      "category": "growth",
+      "keywords": ["landing-page", "deploy", "conversion", "fake-door"],
+      "license": "MIT"
+    },
+    {
+      "name": "sales",
+      "source": "./sales",
+      "description": "Find prospects, write outreach, run discovery calls, and collect your first payment.",
+      "category": "growth",
+      "keywords": ["sales", "outreach", "payments", "stripe", "cold-dm"],
+      "license": "MIT"
+    },
+    {
+      "name": "marketing",
+      "source": "./marketing",
+      "description": "Positioning, SEO, paid ads, and launch posts that move customer-conversation and experiment metrics.",
+      "category": "growth",
+      "keywords": ["marketing", "positioning", "seo", "ads", "launch"],
+      "license": "MIT"
+    },
+    {
+      "name": "product",
+      "source": "./product",
+      "description": "Turn an idea into testable hypotheses, scope an MVP, and decide pivot-or-persist on a clock.",
+      "category": "product",
+      "keywords": ["product", "hypothesis", "experiment", "prd", "mvp"],
+      "license": "MIT"
+    },
+    {
+      "name": "research",
+      "source": "./research",
+      "description": "Customer interviews, competitor scans, market sizing, and transcript-to-insight extraction.",
+      "category": "research",
+      "keywords": ["research", "customer-interviews", "jtbd", "market-sizing"],
+      "license": "MIT"
+    },
+    {
+      "name": "content",
+      "source": "./content",
+      "description": "Brand voice, LinkedIn posts, newsletters, decks, and a demo-day narrative built from your logs.",
+      "category": "content",
+      "keywords": ["content", "brand-voice", "linkedin", "newsletter", "pitch"],
+      "license": "MIT"
+    },
+    {
+      "name": "dev",
+      "source": "./dev",
+      "description": "Frontend scaffolds, payment-link wiring, deploys, MCP integrations, and the ngrok AI Gateway bootstrap.",
+      "category": "engineering",
+      "keywords": ["dev", "deploy", "mcp", "ngrok", "frontend"],
+      "license": "MIT"
+    },
+    {
+      "name": "operations",
+      "source": "./operations",
+      "description": "Milestones, scheduling, expense tracking, status updates, and sponsor handoff docs.",
+      "category": "operations",
+      "keywords": ["operations", "planning", "status-updates", "scheduling"],
+      "license": "MIT"
+    }
+  ]
+}

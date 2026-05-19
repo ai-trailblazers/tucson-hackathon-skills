@@ -1,0 +1,10 @@
+{
+  "name": "content",
+  "description": "Brand voice, LinkedIn posts, newsletters, decks, and a demo-day narrative built from your logs.",
+  "version": "0.1.0",
+  "author": { "name": "AI Trailblazers", "email": "hello@aitrailblazers.org" },
+  "homepage": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "repository": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "license": "MIT",
+  "keywords": ["content", "brand-voice", "linkedin", "newsletter", "pitch"]
+}

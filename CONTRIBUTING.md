@@ -7,7 +7,7 @@ Want to add a skill? Three paths.
 Use this when an upstream skill is good, but you want a frozen, vetted copy in the hackathon directory.
 
 ```
-skills/<role>/<skill-name>/
+plugins/<role>/skills/<skill-name>/
 ├── SKILL.md           # the skill itself (verbatim from upstream)
 ├── SOURCE.md          # required — see template below
 └── <any support files referenced by SKILL.md>
@@ -36,10 +36,12 @@ skills/<role>/<skill-name>/
 Use this when no upstream version exists, or you want it tailored to hackathon mechanics (e.g. milestone broadcast, sponsor credit redemption).
 
 ```
-skills/<role>/<skill-name>/
+plugins/<role>/skills/<skill-name>/
 ├── SKILL.md           # YAML frontmatter (name, description) + body
 └── README.md          # optional context — why this exists, who it's for
 ```
+
+Each `<role>` is a plugin: `plugins/<role>/.claude-plugin/plugin.json` plus a `skills/` folder. Adding a skill to an existing role needs no new manifest — drop the folder under that role's `skills/`. Adding a *new* role means a new plugin directory and a new entry in `.claude-plugin/marketplace.json`.
 
 Originals are MIT-licensed by inclusion in this repo.
 

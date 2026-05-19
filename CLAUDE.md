@@ -15,11 +15,16 @@ If a candidate skill doesn't plausibly serve one of those, it doesn't belong.
 
 ## Layout
 
+This repo is a **Claude Code plugin marketplace**. Each role is a plugin.
+
 ```
-skills/<role>/<skill-name>/
-  SKILL.md         # required — the skill itself
-  SOURCE.md        # required for vendored, optional for originals
-  ...support files
+.claude-plugin/marketplace.json    # lists all 8 role plugins
+plugins/<role>/
+  .claude-plugin/plugin.json       # role plugin manifest
+  skills/<skill-name>/
+    SKILL.md       # required — the skill itself
+    SOURCE.md      # required for vendored, optional for originals
+    ...support files
 ```
 
 Roles: `landing-pages`, `sales`, `marketing`, `product`, `research`, `content`, `dev`, `operations`.
@@ -28,7 +33,7 @@ Roles: `landing-pages`, `sales`, `marketing`, `product`, `research`, `content`, 
 
 1. Read `CONTRIBUTING.md` first.
 2. Decide vendor / original / link (see CONTRIBUTING).
-3. Place under the correct role folder.
+3. Place under `plugins/<role>/skills/<skill-name>/`.
 4. Update the role table in `README.md` with a one-line description.
 5. If vendoring, pin a commit SHA in `SOURCE.md` — never just "main".
 

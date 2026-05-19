@@ -8,36 +8,37 @@ Built for **[AI Hackathon 3](https://www.meetup.com/old-pueblo-new-economy-artif
 
 ## Quick start
 
-```bash
-# Clone the directory
-git clone https://github.com/AI-Trailblazers/tucson-hackathon-skills.git
-cd tucson-hackathon-skills
+This repo is a **Claude Code plugin marketplace**. Add it once, then install whichever role plugins your team needs — no copying files.
 
-# Browse skills by role
-ls skills/
+```text
+# 1. Add the marketplace (run inside Claude Code)
+/plugin marketplace add ai-trailblazers/tucson-hackathon-skills
 
-# Install a skill into your project
-cp -r skills/landing-pages/<skill-name> ~/.claude/skills/
-# OR keep it project-local
-cp -r skills/landing-pages/<skill-name> .claude/skills/
+# 2. Browse and install
+/plugin                                  # interactive: Discover tab
+/plugin install product@tucson-hackathon # or install a role directly
+/plugin install sales@tucson-hackathon
+
+# 3. Keep it current
+/plugin marketplace update tucson-hackathon
 ```
 
-Restart Claude Code. The skill is now available — invoke it by name or describe what you want and Claude will trigger it.
+Each role is one plugin. Installing it brings in every skill for that role; Claude triggers them by description, or invoke directly as `/role:skill-name`.
 
-## Skills by role
+## Plugins by role
 
-Mirrors the Brain Bridge AI teammate suite used at the hackathon.
+Each row is an installable plugin (`<name>@tucson-hackathon`). Mirrors the Brain Bridge AI teammate suite used at the hackathon.
 
-| Role | What it helps you do | Skills |
-|------|---------------------|--------|
-| 🛬 [Landing Pages](skills/landing-pages/) | Ship a live, branded landing page in under an hour | _populated below_ |
-| 📞 [Sales](skills/sales/) | Find prospects, write outreach, run discovery calls, close payments | _populated below_ |
-| 📣 [Marketing](skills/marketing/) | Ads, SEO, positioning, launch posts | _populated below_ |
-| 🧭 [Product](skills/product/) | PRDs, hypothesis tests, roadmap, scope cuts | _populated below_ |
-| 🔬 [Research](skills/research/) | Customer interviews, competitor scans, market sizing | _populated below_ |
-| ✍️ [Content](skills/content/) | LinkedIn, newsletter, brand voice, decks, social | _populated below_ |
-| 💻 [Dev](skills/dev/) | Frontend scaffolds, payment links, deploy, integrations | _populated below_ |
-| ⚙️ [Operations](skills/operations/) | Milestones, scheduling, expense tracking, sponsor handoff | _populated below_ |
+| Plugin | What it helps you do | Skills |
+|--------|---------------------|--------|
+| 🛬 `landing-pages` | Ship a live, branded landing page in under an hour | `landing-in-an-hour` |
+| 📞 `sales` | Find prospects, write outreach, run discovery calls, close payments | `pay-me-now` |
+| 📣 `marketing` | Ads, SEO, positioning, launch posts | _pending_ |
+| 🧭 `product` | PRDs, hypothesis tests, roadmap, scope cuts | `hypothesis-to-experiment` |
+| 🔬 `research` | Customer interviews, competitor scans, market sizing | _pending_ |
+| ✍️ `content` | LinkedIn, newsletter, brand voice, decks, social | _pending_ |
+| 💻 `dev` | Frontend scaffolds, payment links, deploy, integrations | _pending_ |
+| ⚙️ `operations` | Milestones, scheduling, expense tracking, sponsor handoff | _pending_ |
 
 👉 **Full catalog with verdicts & licenses: [CATALOG.md](CATALOG.md)** — 65 skills across 8 roles, with a 7-skill "starter pack" to get a team productive in 10 minutes.
 

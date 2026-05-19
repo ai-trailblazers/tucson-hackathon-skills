@@ -1,0 +1,10 @@
+{
+  "name": "dev",
+  "description": "Frontend scaffolds, payment-link wiring, deploys, MCP integrations, and the ngrok AI Gateway bootstrap.",
+  "version": "0.1.0",
+  "author": { "name": "AI Trailblazers", "email": "hello@aitrailblazers.org" },
+  "homepage": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "repository": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "license": "MIT",
+  "keywords": ["dev", "deploy", "mcp", "ngrok", "frontend"]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "sales",
+  "description": "Find prospects, write outreach, run discovery calls, and collect your first payment.",
+  "version": "0.1.0",
+  "author": { "name": "AI Trailblazers", "email": "hello@aitrailblazers.org" },
+  "homepage": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "repository": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "license": "MIT",
+  "keywords": ["sales", "outreach", "payments", "stripe", "cold-dm"]
+}

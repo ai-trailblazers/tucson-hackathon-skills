@@ -1,0 +1,10 @@
+{
+  "name": "landing-pages",
+  "description": "Ship a live, branded landing page in under an hour — fake-door pages, conversion audits, one-command deploy.",
+  "version": "0.1.0",
+  "author": { "name": "AI Trailblazers", "email": "hello@aitrailblazers.org" },
+  "homepage": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "repository": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "license": "MIT",
+  "keywords": ["landing-page", "deploy", "conversion", "fake-door"]
+}

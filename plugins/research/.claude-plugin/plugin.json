@@ -1,0 +1,10 @@
+{
+  "name": "research",
+  "description": "Customer interviews, competitor scans, market sizing, and transcript-to-insight extraction.",
+  "version": "0.1.0",
+  "author": { "name": "AI Trailblazers", "email": "hello@aitrailblazers.org" },
+  "homepage": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "repository": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "license": "MIT",
+  "keywords": ["research", "customer-interviews", "jtbd", "market-sizing"]
+}
