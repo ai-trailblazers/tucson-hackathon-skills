@@ -54,7 +54,7 @@ Without the credit, the team still gets the free tier (3 endpoints, 1 GB transfe
 
 ### 4. (Optional) Reserve a stable domain
 
-The free tier gives every account one auto-assigned dev domain (e.g. `something-random.ngrok-free.dev`). It's stable across sessions for that account. You don't need to reserve anything unless the team wants a vanity URL.
+The free tier gives every account one auto-assigned dev domain (e.g. `something-random.ngrok-free.app`). It's stable across sessions for that account. You don't need to reserve anything unless the team wants a vanity URL.
 
 If they do want a vanity URL:
 1. Open https://dashboard.ngrok.com/domains
@@ -73,7 +73,7 @@ Write `ngrok-account.md` in repo root (gitignore it — contains identifiers):
 - Account email: <team email>
 - Auth token: stored in `~/.config/ngrok/ngrok.yml` (do not paste here)
 - Credit balance: $10.00 redeemed <YYYY-MM-DD>
-- Dev domain: <something>.ngrok-free.dev
+- Dev domain: <something>.ngrok-free.app
 - Reserved domain (optional): <team-name>.ngrok.app
 ```
 

@@ -19,7 +19,6 @@ on_http_request:
       - type: deny
         config:
           status_code: 403
-          message: "Anthropic-only endpoint"
 
   # 2. Require an Authorization header (cheap second-factor).
   - expressions:
@@ -28,7 +27,6 @@ on_http_request:
       - type: deny
         config:
           status_code: 401
-          message: "Missing Authorization header"
 
   # 3. Optional: validate the bearer matches a known token.
   #    Uncomment + replace <BEARER> with your actual token.
@@ -38,9 +36,9 @@ on_http_request:
   #     - type: deny
   #       config:
   #         status_code: 401
-  #         message: "Bad bearer"
 
   # 4. Per-bearer rate limit: 100 requests per 60s.
+  #    Note: `rate` must be >= 60s and a multiple of 10s.
   - actions:
       - type: rate-limit
         config:

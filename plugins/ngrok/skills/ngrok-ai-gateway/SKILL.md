@@ -30,7 +30,7 @@ The gateway holds provider keys; you call ngrok and pay from your credit balance
 ```bash
 ngrok api ai-gateway-api-keys create \
   --description "Hackathon team key"
-# Returns: ng-xxxxx-g1-xxxxx-xxxxx
+# Returns: ng-xxxxx-g1-xxxxx
 ```
 
 Save the returned key as `NGROK_AI_KEY` in your env.
@@ -66,7 +66,7 @@ resp = client.messages.create(
 )
 ```
 
-The native Anthropic adapter preserves: prompt caching, extended thinking, beta headers, tool use, streaming. Caveat: Anthropic SDK requests can only failover to Claude-compatible providers.
+The native Anthropic adapter preserves: prompt caching, extended thinking, beta headers, tool use, streaming. Caveat: Anthropic SDK requests fail over within Anthropic models only (not to OpenAI or other providers).
 
 ## Mode 2: BYOK (your own provider keys)
 
@@ -75,17 +75,17 @@ Attach your OpenAI / Anthropic keys to a gateway key so client code never sees t
 ```bash
 # Create the gateway key first
 ngrok api ai-gateway-api-keys create --description "Team key"
-# Returns aigk_xxxxx
+# Returns ng-xxxxx-g1-xxxxx — copy the ID portion for the next commands
 
 # Attach an OpenAI key
 ngrok api ai-gateway-provider-keys create \
-  --ai-gateway-api-key-id aigk_xxxxx \
+  --ai-gateway-api-key-id <id-from-above> \
   --provider-id openai \
   --value "sk-..."
 
 # Attach an Anthropic key
 ngrok api ai-gateway-provider-keys create \
-  --ai-gateway-api-key-id aigk_xxxxx \
+  --ai-gateway-api-key-id <id-from-above> \
   --provider-id anthropic \
   --value "sk-ant-..."
 ```

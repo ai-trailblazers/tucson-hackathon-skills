@@ -36,7 +36,6 @@ on_http_request:
       - type: deny
         config:
           status_code: 403
-          message: "Anthropic-only endpoint"
 
   # Require an Authorization header
   - expressions:
@@ -46,7 +45,8 @@ on_http_request:
         config:
           status_code: 401
 
-  # Rate-limit per token: 100 requests / 60s
+  # Rate-limit per token: 100 requests / 60s.
+  # Note: ngrok requires `rate` to be at least 60s and a multiple of 10s.
   - actions:
       - type: rate-limit
         config:
@@ -84,9 +84,11 @@ ngrok http <port> --traffic-policy-file ngrok-policies/mcp-gateway.yml
 
 # With reserved domain (recommended)
 ngrok http <port> \
-  --domain <team>.ngrok.app \
+  --url https://<team>.ngrok.app \
   --traffic-policy-file ngrok-policies/mcp-gateway.yml
 ```
+
+Note: ngrok recently deprecated the `--domain` flag in favor of `--url`. If your CLI still accepts `--domain`, it works but emits a deprecation warning.
 
 Capture the public URL.
 
@@ -99,7 +101,7 @@ In Claude Code or Claude.ai, add the MCP server with:
   "mcpServers": {
     "<team-server-name>": {
       "url": "https://<team>.ngrok.app",
-      "transport": "sse",
+      "transport": "streamable-http",
       "headers": {
         "Authorization": "Bearer <MCP_BEARER>"
       }
@@ -107,6 +109,8 @@ In Claude Code or Claude.ai, add the MCP server with:
   }
 }
 ```
+
+If your MCP server is built against the older HTTP+SSE transport (deprecated March 2025), set `"transport": "sse"` instead. New MCP servers should ship Streamable HTTP.
 
 ### 6. Smoke test
 

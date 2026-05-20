@@ -34,7 +34,7 @@ Anything that's "I have a regular web app on localhost, make it public" — Stre
 
    ```markdown
    ## <YYYY-MM-DD HH:MM> — <service>
-   - URL: https://<something>.ngrok-free.dev
+   - URL: https://<something>.ngrok-free.app
    - Local port: 3000
    - Auth: <none | basic-auth | OAuth-google-email-domain-X>
    - Started by: <teammate>

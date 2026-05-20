@@ -39,9 +39,9 @@ This is how you answer "how much credit have we burned" and "why does my code ke
 
 https://dashboard.ngrok.com/observability/sessions
 
-Shipped April 2026. Groups related requests by session ID. Useful when your agent makes 5 LLM calls and 3 MCP tool calls to answer one user question — you can see the whole chain.
+Groups related requests by a correlation ID so a chain of LLM + MCP calls reads as one session. Useful when your agent makes 5 LLM calls and 3 MCP tool calls to answer one user question — you can see the whole chain in one view.
 
-To use it, your agent code should set a header on every outbound call:
+Check the current ngrok docs for the recognized correlation-header name before relying on this in production — header naming has shifted as the feature has matured. As a sane default, tag every outbound call with a stable session ID and confirm the dashboard picks it up:
 
 ```python
 client.chat.completions.create(
@@ -51,21 +51,19 @@ client.chat.completions.create(
 )
 ```
 
-ngrok will group requests with the same `X-Session-Id` across both AI Gateway and any MCP endpoints.
+If session grouping doesn't show up in the dashboard, the header name has changed — check ngrok.com/docs for the current convention.
 
 ## Quick diagnostic commands
 
 ```bash
-# Last 20 requests to a specific endpoint
+# List active endpoints (and their IDs, useful for kill-switch commands)
 ngrok api endpoints list
-ngrok api requests list --endpoint <endpoint-id> --limit 20
 
-# Replay a captured request (useful for debugging Traffic Policy)
-ngrok api requests replay <request-id>
-
-# Get the captured payload of a request
-ngrok api requests get <request-id>
+# Stop a tunnel by endpoint ID
+ngrok api endpoints delete <endpoint-id>
 ```
+
+The richer "look at every request that hit this endpoint" workflow lives in the dashboard's Traffic Inspector — see "1. Traffic Inspector" above. ngrok's CLI surface for captured-request inspection has moved around recently; if you want a scriptable interface, check `ngrok api --help` for the current subcommand names rather than the older `requests list` / `requests replay` invocations.
 
 ## What to grep for in the dashboard
 
@@ -82,4 +80,4 @@ ngrok api requests get <request-id>
 
 - Relying on Traffic Inspector for production audit logs — 24h retention is fine for debugging, not for compliance
 - Putting customer PII through the gateway without `request-body-find-replace` redaction — the dashboard captures bodies, so anyone with dashboard access sees the raw prompt
-- Polling `ngrok api requests list` in a tight loop — use the dashboard or a single targeted query; ngrok's API has its own rate limits
+- Polling any `ngrok api` subcommand in a tight loop — use the dashboard Traffic Inspector or a single targeted query; the ngrok control API has its own rate limits
