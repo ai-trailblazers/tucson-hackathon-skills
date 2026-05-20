@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "tucson-hackathon",
   "description": "Curated Claude Code skills for founders launching real businesses in a weekend. Built for AI Hackathon 3 (Tucson, May 23-24, 2026).",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "owner": {
     "name": "AI Trailblazers",
     "email": "hello@aitrailblazers.org"
@@ -89,6 +89,14 @@
       "description": "Write a new Claude Code skill and open a PR back to this repo. Triggers the skill-published leaderboard milestone.",
       "category": "operations",
       "keywords": ["skills", "contribute", "meta"],
+      "license": "MIT"
+    },
+    {
+      "name": "ngrok",
+      "source": "./ngrok",
+      "description": "ngrok skills for AI Hackathon 3: redeem the $10 hackathon credit, route LLM calls through the AI Gateway (OpenAI + Anthropic, with managed credits or BYOK), expose your MCP server safely with an Anthropic IP allowlist, and inspect traffic. For plain non-AI tunneling, pair with the official ngrok/agent-skills repo.",
+      "category": "engineering",
+      "keywords": ["ngrok", "ai-gateway", "mcp", "tunnel", "llm-router"],
       "license": "MIT"
     },
     {

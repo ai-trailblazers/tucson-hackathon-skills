@@ -1,0 +1,88 @@
+# Hardened ngrok Traffic Policy for MCP server exposure.
+#
+# Drop this into your repo as ngrok-policies/mcp-gateway.yml and attach with:
+#   ngrok http <port> --traffic-policy-file ngrok-policies/mcp-gateway.yml
+#
+# Required substitutions:
+#   - Replace <PORT> with your local MCP server port (e.g., 3000).
+#
+# Optional tightening (commented out below):
+#   - Restrict to a single bearer (instead of any non-empty Authorization)
+#   - Add a per-IP rate limit on top of the per-bearer one
+#   - Strip request headers before forwarding (privacy)
+
+on_http_request:
+  # 1. Anthropic IP allowlist — only Claude.ai and Claude Code edge IPs.
+  - expressions:
+      - "!('com.anthropic.api' in conn.client_ip.categories)"
+    actions:
+      - type: deny
+        config:
+          status_code: 403
+          message: "Anthropic-only endpoint"
+
+  # 2. Require an Authorization header (cheap second-factor).
+  - expressions:
+      - "!hasReqHeader('Authorization')"
+    actions:
+      - type: deny
+        config:
+          status_code: 401
+          message: "Missing Authorization header"
+
+  # 3. Optional: validate the bearer matches a known token.
+  #    Uncomment + replace <BEARER> with your actual token.
+  # - expressions:
+  #     - "getReqHeader('Authorization')[0] != 'Bearer <BEARER>'"
+  #   actions:
+  #     - type: deny
+  #       config:
+  #         status_code: 401
+  #         message: "Bad bearer"
+
+  # 4. Per-bearer rate limit: 100 requests per 60s.
+  - actions:
+      - type: rate-limit
+        config:
+          algorithm: sliding_window
+          capacity: 100
+          rate: 60s
+          bucket_key:
+            - "getReqHeader('Authorization')[0]"
+
+  # 5. Optional: per-IP rate limit on top (defense in depth).
+  # - actions:
+  #     - type: rate-limit
+  #       config:
+  #         algorithm: sliding_window
+  #         capacity: 500
+  #         rate: 60s
+  #         bucket_key:
+  #           - "conn.client_ip"
+
+  # 6. Strip headers we don't want forwarded to the MCP server.
+  - actions:
+      - type: remove-headers
+        config:
+          headers:
+            - "X-Forwarded-For"
+            - "X-Real-IP"
+
+  # 7. Forward to the local MCP server.
+  - actions:
+      - type: forward-internal
+        config:
+          url: http://localhost:<PORT>
+
+# Optional: also redact PII in request bodies before they reach the MCP server.
+# Uncomment if your tool handlers receive prompts that may contain PII.
+#
+# on_http_request:
+#   - actions:
+#       - type: request-body-find-replace
+#         config:
+#           replacements:
+#             - from: "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+#               to: "[EMAIL]"
+#             - from: "\\b\\d{3}-\\d{2}-\\d{4}\\b"
+#               to: "[SSN]"
