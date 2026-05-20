@@ -14,16 +14,38 @@ This repo is a **Claude Code plugin marketplace**. Add it once, then install whi
 # 1. Add the marketplace (run inside Claude Code)
 /plugin marketplace add ai-trailblazers/tucson-hackathon-skills
 
-# 2. Browse and install
-/plugin                                  # interactive: Discover tab
-/plugin install product@tucson-hackathon # or install a role directly
-/plugin install sales@tucson-hackathon
+# 2. Install the REQUIRED telemetry plugin first
+/plugin install telemetry@tucson-hackathon
 
-# 3. Keep it current
+# 3. Install any role plugins your team needs
+/plugin install product@tucson-hackathon
+/plugin install sales@tucson-hackathon
+/plugin install ngrok@tucson-hackathon
+# ...etc
+
+# 4. Keep it current
 /plugin marketplace update tucson-hackathon
 ```
 
 Each role is one plugin. Installing it brings in every skill for that role; Claude triggers them by description, or invoke directly as `/role:skill-name`.
+
+### Hackathon telemetry setup (one-time, per team)
+
+Teams playing for the live leaderboard need the shared API key handed out at the event. Set it in your shell **before** running `/hackathon-setup`:
+
+```bash
+# Add to ~/.zshrc or ~/.bashrc (event-scoped key; rotates after the event)
+export HACKATHON_API_KEY="<paste the value from the participant guide>"
+export HACKATHON_API="https://aitrailblazers.org/api/leaderboard"
+```
+
+Then inside Claude Code:
+
+```
+/hackathon-setup
+```
+
+This registers your team with the central leaderboard so milestones (signups, payments, page launches, etc.) show up on the big screen at IDA. The participant guide (handed out at registration) has the key value; the live leaderboard lives at https://aitrailblazers.org/hackathon-3/leaderboard.
 
 ## Plugins by role
 
@@ -31,16 +53,22 @@ Each row is an installable plugin (`<name>@tucson-hackathon`). Mirrors the Brain
 
 | Plugin | What it helps you do | Skills |
 |--------|---------------------|--------|
+| 🎯 `telemetry` **(required)** | Register your team, capture milestone signals, log to the leaderboard | `hackathon-setup`, `log-milestone`, `confirm-milestone` |
 | 🛬 `landing-pages` | Ship a live, branded landing page in under an hour | `landing-in-an-hour` |
-| 📞 `sales` | Find prospects, write outreach, run discovery calls, close payments | `pay-me-now` |
-| 📣 `marketing` | Ads, SEO, positioning, launch posts | _pending_ |
-| 🧭 `product` | PRDs, hypothesis tests, roadmap, scope cuts | `hypothesis-to-experiment` |
-| 🔬 `research` | Customer interviews, competitor scans, market sizing | _pending_ |
-| ✍️ `content` | LinkedIn, newsletter, brand voice, decks, social | _pending_ |
-| 💻 `dev` | Frontend scaffolds, payment links, deploy, integrations | _pending_ |
-| ⚙️ `operations` | Milestones, scheduling, expense tracking, sponsor handoff | _pending_ |
+| 📞 `sales` | Find prospects, write outreach, run discovery calls, close payments | `pay-me-now`, `cold-outreach-sequence`, `meeting-prep` |
+| 📣 `marketing` | Positioning, campaign launch, ad copy across the awareness ladder | `positioning-statement`, `campaign-launch`, `ad-copy-ladder` |
+| 🧭 `product` | Hypothesis tests, discovery interviews, insight capture, lean canvas | `hypothesis-to-experiment`, `discovery-interview-prep`, `conversation-to-insight`, `populating-lean-canvas` |
+| 🔬 `research` | Find customers reachable in 48h, validate a segment in 30 min | `customer-finder`, `segment-research` |
+| ✍️ `content` | LinkedIn posts, blog posts, AI-tell removal | `linkedin-post`, `blog-post`, `de-ai-ify` |
+| 💻 `dev` | Stripe checkout setup; pair with Anthropic bundled skills for code | `stripe-payment-link` |
+| ⚙️ `operations` | Milestone tracking + 5-minute team standup | `milestone-tracker`, `daily-standup` |
+| 🌐 `ngrok` | Redeem $10 credit, route LLM calls through AI Gateway, expose MCP safely | `ngrok-setup`, `ngrok-expose-service`, `ngrok-ai-gateway`, `ngrok-mcp-gateway`, `ngrok-observability` |
+| 🧰 `skill-builder` | Write a new skill and PR it back here (triggers `skill-published` milestone) | `creating-skills` |
+| 👨‍🏫 `coaches` **(coach-only)** | Verify team milestones, log coach-witnessed events | `verify-milestone` |
 
-👉 **Full catalog with verdicts & licenses: [CATALOG.md](CATALOG.md)** — 65 skills across 8 roles, with a 7-skill "starter pack" to get a team productive in 10 minutes.
+For plain non-AI tunnel exposure, pair the `ngrok` plugin with the official [ngrok/agent-skills](https://github.com/ngrok/agent-skills) repo.
+
+👉 **Full catalog with verdicts & licenses: [CATALOG.md](CATALOG.md)** — original skills shipped here plus the broader curated landscape.
 
 ## How skills get into this repo
 
