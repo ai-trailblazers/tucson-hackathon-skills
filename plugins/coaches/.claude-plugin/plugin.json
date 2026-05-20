@@ -1,0 +1,7 @@
+{
+  "name": "coaches",
+  "version": "0.1.0",
+  "description": "Coach-only tools for the hackathon. Verifies self-reported team milestones and logs coach-witnessed events. Do not install on team machines.",
+  "author": "AI Trailblazers",
+  "license": "MIT"
+}

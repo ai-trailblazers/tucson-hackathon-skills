@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "tucson-hackathon",
   "description": "Curated Claude Code skills for founders launching real businesses in a weekend. Built for AI Hackathon 3 (Tucson, May 23-24, 2026).",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "owner": {
     "name": "AI Trailblazers",
     "email": "hello@aitrailblazers.org"
@@ -11,6 +11,14 @@
     "pluginRoot": "./plugins"
   },
   "plugins": [
+    {
+      "name": "telemetry",
+      "source": "./telemetry",
+      "description": "Required base plugin. Registers your team, detects milestone signals from your shell activity, and routes confirmed events to the central leaderboard. Install this first.",
+      "category": "operations",
+      "keywords": ["telemetry", "leaderboard", "milestones", "hackathon-core"],
+      "license": "MIT"
+    },
     {
       "name": "landing-pages",
       "source": "./landing-pages",
@@ -73,6 +81,22 @@
       "description": "Milestones, scheduling, expense tracking, status updates, and sponsor handoff docs.",
       "category": "operations",
       "keywords": ["operations", "planning", "status-updates", "scheduling"],
+      "license": "MIT"
+    },
+    {
+      "name": "skill-builder",
+      "source": "./skill-builder",
+      "description": "Write a new Claude Code skill and open a PR back to this repo. Triggers the skill-published leaderboard milestone.",
+      "category": "operations",
+      "keywords": ["skills", "contribute", "meta"],
+      "license": "MIT"
+    },
+    {
+      "name": "coaches",
+      "source": "./coaches",
+      "description": "Coach-only plugin. Verifies team-submitted milestones and logs coach-witnessed events. Do NOT install on team machines.",
+      "category": "operations",
+      "keywords": ["coach", "verify", "leaderboard"],
       "license": "MIT"
     }
   ]

@@ -1,0 +1,7 @@
+{
+  "name": "telemetry",
+  "version": "0.1.0",
+  "description": "Hackathon leaderboard telemetry. Registers team, sniffs milestone signals, and routes confirmed events to the central leaderboard. Required base plugin for all role plugins.",
+  "author": "AI Trailblazers",
+  "license": "MIT"
+}
