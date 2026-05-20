@@ -1,0 +1,7 @@
+{
+  "name": "skill-builder",
+  "version": "0.1.0",
+  "description": "Helps teams write and contribute new Claude Code skills back to the shared hackathon repo. Fork of the Brain Bridge creating-skills workflow.",
+  "author": "AI Trailblazers",
+  "license": "MIT"
+}
