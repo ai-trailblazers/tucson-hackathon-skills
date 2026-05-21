@@ -45,4 +45,11 @@ if echo "$CMD" | grep -qiE 'gh pr create.*tucson-hackathon-skills'; then
   emit "skill_published" "$(echo "$CMD" | head -c 200)"
 fi
 
+# ngrok usage — bonus event type (capped at 3 per team on the leaderboard).
+# Triggers on: ngrok http <port>, ngrok config add-authtoken, ngrok api
+# ai-gateway-* commands, OR any reference to a public ngrok URL in a command.
+if echo "$CMD" | grep -qiE '\bngrok http\b|\bngrok config add-authtoken\b|\bngrok api ai-gateway\b|https://[a-z0-9-]+\.ngrok(-free)?\.app'; then
+  emit "ngrok_used" "$(echo "$CMD" | head -c 200)"
+fi
+
 exit 0

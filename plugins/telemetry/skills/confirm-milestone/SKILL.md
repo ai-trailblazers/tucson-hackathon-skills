@@ -1,6 +1,6 @@
 ---
 name: confirm-milestone
-description: Triggered by the PostToolUse hook when a likely milestone signal is detected (Stripe payment link created, page deployed, write to experiments.md / conversations.md / insights.md). Asks the team to confirm before logging. Never auto-logs. Use only when the telemetry hook routes you here — do not call directly.
+description: Triggered by the PostToolUse hook when a likely milestone signal is detected (Stripe payment link created, page deployed, write to experiments.md / conversations.md / insights.md, ngrok command run or ngrok artifact written). Asks the team to confirm before logging. Never auto-logs. Use only when the telemetry hook routes you here — do not call directly.
 ---
 
 # confirm-milestone
@@ -24,8 +24,9 @@ Only via `~/.hackathon/.sniff-queue` written by the telemetry hook. Each line in
    - `wrote_conversations_md` → "You added to `conversations.md`. Log a new customer conversation? [log / skip]"
    - `wrote_experiments_md` → "You added to `experiments.md`. Log an experiment? [log / skip]"
    - `wrote_insights_md` → "You added to `insights.md`. Tied to a customer conversation? [yes-log-conv / skip]"
+   - `ngrok_used` → "Looks like you used ngrok. Log as `ngrok-bonus`? (Counts toward the ngrok bonus — capped at 3 per team.) [log / skip / log-as-other]"
 
-3. **If `log`:** POST to `/event` with `source: "detected"`, `tool_name`, and the evidence string in notes.
+3. **If `log`:** POST to `/event` with `source: "detected"`, the appropriate `event_type`, `tool_name`, and the evidence string in notes. For `ngrok_used` the `event_type` is `ngrok-bonus`.
 
 4. **If `skip`:** record in `~/.hackathon/.skip-cache` so the hook doesn't ask again about this exact evidence for the rest of the session.
 

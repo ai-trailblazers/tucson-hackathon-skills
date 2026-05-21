@@ -24,6 +24,7 @@ Self-report a milestone. Logged immediately, flagged for coach verification.
    - `signup` — first / additional signup on the page
    - `payment` — someone actually paid (deposit, pilot, first dollar)
    - `skill-published` — opened a PR to the shared skills repo
+   - `ngrok-bonus` — used ngrok meaningfully (exposed a service, routed an LLM call through the AI Gateway, OR exposed an MCP server). Capped at 3 per team on the leaderboard.
 
 3. **Collect evidence in one short prompt:**
    - Notes (1-2 sentences: who, what happened, what you learned)
