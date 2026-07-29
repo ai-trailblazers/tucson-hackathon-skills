@@ -7,13 +7,10 @@
     "name": "AI Trailblazers",
     "email": "hello@aitrailblazers.org"
   },
-  "metadata": {
-    "pluginRoot": "./plugins"
-  },
   "plugins": [
     {
       "name": "telemetry",
-      "source": "./telemetry",
+      "source": "./plugins/telemetry",
       "description": "Required base plugin. Discovers your event from your API key, registers your team, detects milestone signals from your shell activity, and routes confirmed events to the leaderboard. Install this first.",
       "category": "operations",
       "keywords": [
@@ -26,7 +23,7 @@
     },
     {
       "name": "landing-pages",
-      "source": "./landing-pages",
+      "source": "./plugins/landing-pages",
       "description": "Ship a live, branded landing page in under an hour \u2014 fake-door pages, conversion audits, one-command deploy.",
       "category": "growth",
       "keywords": [
@@ -39,7 +36,7 @@
     },
     {
       "name": "sales",
-      "source": "./sales",
+      "source": "./plugins/sales",
       "description": "Find prospects, write outreach, run discovery calls, and collect your first payment.",
       "category": "growth",
       "keywords": [
@@ -53,7 +50,7 @@
     },
     {
       "name": "marketing",
-      "source": "./marketing",
+      "source": "./plugins/marketing",
       "description": "Positioning, SEO, paid ads, and launch posts that move your outreach and experiment milestones.",
       "category": "growth",
       "keywords": [
@@ -67,7 +64,7 @@
     },
     {
       "name": "product",
-      "source": "./product",
+      "source": "./plugins/product",
       "description": "Turn an idea into testable hypotheses, scope an MVP, and decide pivot-or-persist on a clock.",
       "category": "product",
       "keywords": [
@@ -81,7 +78,7 @@
     },
     {
       "name": "research",
-      "source": "./research",
+      "source": "./plugins/research",
       "description": "Customer interviews, competitor scans, market sizing, and transcript-to-insight extraction.",
       "category": "research",
       "keywords": [
@@ -94,7 +91,7 @@
     },
     {
       "name": "content",
-      "source": "./content",
+      "source": "./plugins/content",
       "description": "Brand voice, LinkedIn posts, newsletters, decks, and a demo-day narrative built from your logs.",
       "category": "content",
       "keywords": [
@@ -108,7 +105,7 @@
     },
     {
       "name": "dev",
-      "source": "./dev",
+      "source": "./plugins/dev",
       "description": "Frontend scaffolds, payment-link wiring, deploys, MCP integrations, and the ngrok AI Gateway bootstrap.",
       "category": "engineering",
       "keywords": [
@@ -122,7 +119,7 @@
     },
     {
       "name": "operations",
-      "source": "./operations",
+      "source": "./plugins/operations",
       "description": "Milestones, scheduling, expense tracking, status updates, and sponsor handoff docs.",
       "category": "operations",
       "keywords": [
@@ -135,7 +132,7 @@
     },
     {
       "name": "skill-builder",
-      "source": "./skill-builder",
+      "source": "./plugins/skill-builder",
       "description": "Write a new Claude Code skill and open a PR back to this repo \u2014 a shipped, reusable asset.",
       "category": "operations",
       "keywords": [
@@ -147,7 +144,7 @@
     },
     {
       "name": "ngrok",
-      "source": "./ngrok",
+      "source": "./plugins/ngrok",
       "description": "ngrok skills for AI Trailblazers hackathons: redeem the hackathon credit, route LLM calls through the AI Gateway (OpenAI + Anthropic, with managed credits or BYOK), expose your MCP server safely with an Anthropic IP allowlist, and inspect traffic. For plain non-AI tunneling, pair with the official ngrok/agent-skills repo.",
       "category": "engineering",
       "keywords": [
@@ -161,7 +158,7 @@
     },
     {
       "name": "coaches",
-      "source": "./coaches",
+      "source": "./plugins/coaches",
       "description": "Mentor-only plugin. Verifies team-submitted milestones and logs mentor-witnessed events. Do NOT install on team machines.",
       "category": "operations",
       "keywords": [
