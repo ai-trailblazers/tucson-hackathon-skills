@@ -1,6 +1,6 @@
 ---
 name: creating-skills
-description: Write a new Claude Code skill, validate its triggering description, and open a PR to the shared tucson-hackathon-skills repo. Use when the team wants to "create a skill", "make a skill for X", "publish a skill", "share what we just built", or has a workflow they ran 2+ times manually and want to codify. Pairs with the leaderboard `skill-published` milestone.
+description: Write a new Claude Code skill, validate its triggering description, and open a PR to the shared hackathon-skills repo. Use when the team wants to "create a skill", "make a skill for X", "publish a skill", "share what we just built", or has a workflow they ran 2+ times manually and want to codify. Pairs with whichever leaderboard milestone your event uses for shipping a reusable asset.
 ---
 
 # creating-skills
@@ -68,9 +68,9 @@ If the description is vague, the skill won't trigger — and a skill that doesn'
 
 ```bash
 # Fork if you haven't already
-gh repo fork ai-trailblazers/tucson-hackathon-skills --clone
+gh repo fork ai-trailblazers/hackathon-skills --clone
 
-cd tucson-hackathon-skills
+cd hackathon-skills
 git checkout -b add-<skill-name>
 # add your skill at plugins/<role>/skills/<skill-name>/SKILL.md
 git add plugins/<role>/skills/<skill-name>/
@@ -79,7 +79,7 @@ git push origin add-<skill-name>
 gh pr create --title "Add <skill-name>" --body "<what it does, why, who tested it>"
 ```
 
-The `gh pr create` call against `tucson-hackathon-skills` triggers the telemetry hook → logs `skill-published` for the leaderboard.
+The `gh pr create` call against `hackathon-skills` triggers the telemetry hook → `/confirm-milestone` offers to log it under your event's shipped-asset category.
 
 ### 5. Update the CATALOG.md row
 

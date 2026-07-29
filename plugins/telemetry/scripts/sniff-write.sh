@@ -33,9 +33,11 @@ case "$BASENAME" in
   experiments.md)   emit "wrote_experiments_md"   "$FILE_PATH" ;;
   insights.md)      emit "wrote_insights_md"      "$FILE_PATH" ;;
   revenue.md)       emit "wrote_revenue_md"       "$FILE_PATH" ;;
-  # ngrok-bonus signals — any artifact the ngrok plugin writes counts as
-  # "used ngrok" for the bonus event. The /confirm-milestone skill maps
-  # ngrok_used → ngrok-bonus on the leaderboard. Capped at 3 per team.
+  commitments.md)   emit "commitment_recorded"    "$FILE_PATH" ;;
+  outreach.md)      emit "outreach_sent"          "$FILE_PATH" ;;
+  # Any artifact the ngrok plugin writes means a service was exposed.
+  # /confirm-milestone maps ngrok_used to whichever category this event uses
+  # for shipping a reachable artifact.
   ngrok-tunnel.md|ngrok-account.md|ai-gateway.md) emit "ngrok_used" "$FILE_PATH" ;;
 esac
 

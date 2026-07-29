@@ -1,10 +1,12 @@
-# Tucson Hackathon Skills
+# Hackathon Skills
 
-An open-source, curated directory of [Claude Code skills](https://docs.claude.com/en/docs/claude-code/skills) for founders launching real businesses in a weekend.
+An open-source, curated directory of [Claude Code skills](https://docs.claude.com/en/docs/claude-code/skills) for AI Trailblazers hackathon teams — and free for anyone running a similar event.
 
-Built for **[AI Hackathon 3](https://www.meetup.com/old-pueblo-new-economy-artificial-intelligence-trailblazers/events/313338598/)** (Tucson IDA, May 23–24, 2026) — and free for any team, anywhere, running a similar "ship a business by Sunday" hackathon.
+Currently powering the **Social Impact HackAIthon — San Diego** (Aug 1–2, 2026).
 
-> **The premise:** Teams work *alongside* AI teammates (Landing Pages, Sales, Marketing, Product, Research, Content, Dev). Winning teams aren't measured on pitch decks — they're measured on **experiments run, customer conversations had, and whether anyone paid.** These skills exist to compress the distance between idea and first dollar.
+> **The premise:** Teams work *alongside* AI teammates (Landing Pages, Sales, Marketing, Product, Research, Content, Dev). Winning teams aren't measured on pitch decks — they're measured on what they actually moved over the weekend. These skills exist to compress the distance between an idea and something real.
+
+**One repo, every event.** The plugins are event-agnostic: your API key tells the leaderboard which hackathon you're at, and the skills discover that event's milestone categories and board URL from the server. Nothing here is hard-coded to a particular hackathon.
 
 ## Quick start
 
@@ -12,32 +14,34 @@ This repo is a **Claude Code plugin marketplace**. Add it once, then install whi
 
 ```text
 # 1. Add the marketplace (run inside Claude Code)
-/plugin marketplace add ai-trailblazers/tucson-hackathon-skills
+/plugin marketplace add ai-trailblazers/hackathon-skills
 
 # 2. Install the REQUIRED telemetry plugin first
-/plugin install telemetry@tucson-hackathon
+/plugin install telemetry@hackathon-skills
 
 # 3. Install any role plugins your team needs
-/plugin install product@tucson-hackathon
-/plugin install sales@tucson-hackathon
-/plugin install ngrok@tucson-hackathon
+/plugin install product@hackathon-skills
+/plugin install research@hackathon-skills
+/plugin install ngrok@hackathon-skills
 # ...etc
 
 # 4. Keep it current
-/plugin marketplace update tucson-hackathon
+/plugin marketplace update hackathon-skills
 ```
 
 Each role is one plugin. Installing it brings in every skill for that role; Claude triggers them by description, or invoke directly as `/role:skill-name`.
 
 ### Hackathon telemetry setup (one-time, per team)
 
-Teams playing for the live leaderboard need the shared API key handed out at the event. Set it in your shell **before** running `/hackathon-setup`:
+Teams playing for the live leaderboard need their event's shared API key, which is in the Participant Guide. Set it in your shell **before** running `/hackathon-setup`:
 
 ```bash
-# Add to ~/.zshrc or ~/.bashrc (event-scoped key; rotates after the event)
-export HACKATHON_API_KEY="<paste the value from the participant guide>"
+# Add to ~/.zshrc or ~/.bashrc
+export HACKATHON_API_KEY="<paste the value from your Participant Guide>"
 export HACKATHON_API="https://aitrailblazers.org/api/leaderboard"
 ```
+
+The key is the only thing you configure. It identifies which hackathon you're at, and everything else — event name, milestone categories, board URL — is discovered from the server.
 
 Then inside Claude Code:
 
@@ -45,15 +49,17 @@ Then inside Claude Code:
 /hackathon-setup
 ```
 
-This registers your team with the central leaderboard so milestones (signups, payments, page launches, etc.) show up on the big screen at IDA. The participant guide (handed out at registration) has the key value; the live leaderboard lives at https://aitrailblazers.org/hackathon-3/leaderboard.
+This registers your team with the central leaderboard so your milestones show up on the big screen. `/hackathon-setup` prints your event's board URL when it finishes; for San Diego that's https://aitrailblazers.org/hackathon-sd/leaderboard.
+
+Self-reported milestones appear on the board immediately as **pending**, and flip to score once a mentor verifies them.
 
 ## Plugins by role
 
-Each row is an installable plugin (`<name>@tucson-hackathon`). Mirrors the Brain Bridge AI teammate suite used at the hackathon.
+Each row is an installable plugin (`<name>@hackathon-skills`). Mirrors the Brain Bridge AI teammate suite used at the hackathon.
 
 | Plugin | What it helps you do | Skills |
 |--------|---------------------|--------|
-| 🎯 `telemetry` **(required)** | Register your team, capture milestone signals, log to the leaderboard | `hackathon-setup`, `log-milestone`, `confirm-milestone` |
+| 🎯 `telemetry` **(required)** | Discover your event, register your team, capture milestone signals, log to the leaderboard | `hackathon-setup`, `log-milestone`, `confirm-milestone` |
 | 🛬 `landing-pages` | Ship a live, branded landing page in under an hour | `landing-in-an-hour` |
 | 📞 `sales` | Find prospects, write outreach, run discovery calls, close payments | `pay-me-now`, `cold-outreach-sequence`, `meeting-prep` |
 | 📣 `marketing` | Positioning, campaign launch, ad copy across the awareness ladder | `positioning-statement`, `campaign-launch`, `ad-copy-ladder` |
@@ -63,7 +69,7 @@ Each row is an installable plugin (`<name>@tucson-hackathon`). Mirrors the Brain
 | 💻 `dev` | Stripe checkout setup; pair with Anthropic bundled skills for code | `stripe-payment-link` |
 | ⚙️ `operations` | Milestone tracking + 5-minute team standup | `milestone-tracker`, `daily-standup` |
 | 🌐 `ngrok` | Redeem $10 credit, route LLM calls through AI Gateway, expose MCP safely | `ngrok-setup`, `ngrok-expose-service`, `ngrok-ai-gateway`, `ngrok-mcp-gateway`, `ngrok-observability` |
-| 🧰 `skill-builder` | Write a new skill and PR it back here (triggers `skill-published` milestone) | `creating-skills` |
+| 🧰 `skill-builder` | Write a new skill and PR it back here (triggers a shipped-asset milestone) | `creating-skills` |
 | 👨‍🏫 `coaches` **(coach-only)** | Verify team milestones, log coach-witnessed events | `verify-milestone` |
 
 For plain non-AI tunnel exposure, pair the `ngrok` plugin with the official [ngrok/agent-skills](https://github.com/ngrok/agent-skills) repo.

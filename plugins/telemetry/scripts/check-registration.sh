@@ -14,5 +14,7 @@ EOF
 fi
 
 TEAM_ID=$(jq -r '.team_id // "UNKNOWN"' "$TEAM_FILE" 2>/dev/null || echo "UNKNOWN")
-echo "[hackathon-telemetry] Registered as $TEAM_ID. Logging to aitrailblazers.org/api/leaderboard." >&2
+EVENT=$(jq -r '.event_name // .event // "unknown event"' "$TEAM_FILE" 2>/dev/null || echo "unknown event")
+BOARD=$(jq -r '.board_url // "the leaderboard"' "$TEAM_FILE" 2>/dev/null || echo "the leaderboard")
+echo "[hackathon-telemetry] Registered as $TEAM_ID for $EVENT. Board: $BOARD" >&2
 exit 0

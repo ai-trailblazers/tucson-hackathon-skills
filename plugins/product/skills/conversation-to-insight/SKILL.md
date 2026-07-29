@@ -31,7 +31,7 @@ One file: `insights.md` in the team's repo root. Append-only. Each insight is:
 
 3. **Present one at a time** to the team via AskUserQuestion: approve / edit / skip. Never auto-write. False insights pollute the team's mental model for the rest of the hackathon.
 
-4. **Write approved insights** to `insights.md`. Each insight write triggers the hook → `/confirm-milestone` offers to log as either a `customer-conversation` follow-up or just an internal artifact.
+4. **Write approved insights** to `insights.md`. Each insight write triggers the hook → `/confirm-milestone` offers to log it under your event's conversation category, or to skip it as an internal artifact.
 
 ## What makes a good insight
 
@@ -41,4 +41,4 @@ One file: `insights.md` in the team's repo root. Append-only. Each insight is:
 
 ## Segment slugs
 
-Keep tight, kebab-case. Examples: `tucson-restaurant-owners`, `solo-bookkeepers`, `dev-shops-1-to-10`. New segment? Confirm with the team before introducing — too many segments dilutes learning.
+Keep tight, kebab-case. Examples: `local-restaurant-owners`, `solo-bookkeepers`, `dev-shops-1-to-10`. New segment? Confirm with the team before introducing — too many segments dilutes learning.
