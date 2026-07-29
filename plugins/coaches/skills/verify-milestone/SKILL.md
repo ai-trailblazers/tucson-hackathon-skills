@@ -44,6 +44,19 @@ curl -sS -X PATCH "$HACKATHON_API/event/rec123/verify" \
 The board drops its cache on every write, so a verified milestone shows up on the
 team's next poll rather than minutes later.
 
+### Find your teams' IDs
+
+Every other call needs a `team_id`, and a mentor knows their teams by name. List them:
+
+```bash
+curl -sS "$HACKATHON_API/teams" -H "Authorization: Bearer $HACKATHON_API_KEY"
+```
+
+Returns every team registered for your event with its `team_id`, name, project, and
+members. Match on name, and if two entries look like the same team registered twice,
+flag it to an organizer rather than verifying onto one of them — their score is
+currently split.
+
 ### List pending verifications for a team
 
 ```bash
