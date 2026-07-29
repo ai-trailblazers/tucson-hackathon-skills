@@ -41,11 +41,12 @@ if echo "$CMD" | grep -qiE '\b(vercel|netlify|pinme|gh-pages|cloudflare pages|wr
 fi
 
 # PR opened against shared skills repo
-if echo "$CMD" | grep -qiE 'gh pr create.*tucson-hackathon-skills'; then
+if echo "$CMD" | grep -qiE 'gh pr create.*hackathon-skills'; then
   emit "skill_published" "$(echo "$CMD" | head -c 200)"
 fi
 
-# ngrok usage — bonus event type (capped at 3 per team on the leaderboard).
+# ngrok usage. confirm-milestone maps this to whichever category the current
+# event uses for shipping a reachable artifact — there is no fixed bonus type.
 # Triggers on: ngrok http <port>, ngrok config add-authtoken, ngrok api
 # ai-gateway-* commands, OR any reference to a public ngrok URL in a command.
 if echo "$CMD" | grep -qiE '\bngrok http\b|\bngrok config add-authtoken\b|\bngrok api ai-gateway\b|https://[a-z0-9-]+\.ngrok(-free)?\.app'; then

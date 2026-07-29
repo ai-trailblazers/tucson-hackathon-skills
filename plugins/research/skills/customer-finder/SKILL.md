@@ -1,6 +1,6 @@
 ---
 name: customer-finder
-description: Build a ranked list of 20-50 prospective customers the team can talk to within 48 hours. Combines Tucson-local venues + online communities + LinkedIn search filters tied to the team's ICP. Use early on Day 1 right after positioning is locked. Triggers: "find me 20 customers", "where do our customers hang out", "build a prospect list", "who can we talk to today". Pairs upstream with positioning-statement and downstream with cold-outreach-sequence + discovery-interview-prep.
+description: Build a ranked list of 20-50 prospective customers the team can talk to within 48 hours. Combines venues local to the event city + online communities + LinkedIn search filters tied to the team's ICP. Use early on Day 1 right after positioning is locked. Triggers: "find me 20 customers", "where do our customers hang out", "build a prospect list", "who can we talk to today". Pairs upstream with positioning-statement and downstream with cold-outreach-sequence + discovery-interview-prep.
 ---
 
 # customer-finder
@@ -17,10 +17,10 @@ Refuse to start unless:
 
 1. **In-person at IDA (the hackathon venue)** — fastest. Ask: who's here that fits the ICP?
 2. **Personal LinkedIn network of each team member** — 2nd-degree connections in ICP.
-3. **Tucson-local groups:** Old Pueblo New Economy Meetup, Startup Tucson, TechCatalyst, SAACA Catalyst, Pima Community College, U of A Eller MIS, local Slacks.
+3. **Local groups in the event city:** Meetup groups, the local startup/nonprofit hub, community colleges and universities, civic tech and mutual-aid Slacks. Ask the team where their people already gather; do not guess a city.
 4. **Online niche communities:** subreddits, Discord servers, Indie Hackers, specific Twitter/X lists.
-5. **LinkedIn search** with these filters: industry + size + role + Tucson (or extended geography if relevant).
-6. **Google Maps for B2B local:** specific industry + zip code (e.g., "Tucson roofing contractor 85705").
+5. **LinkedIn search** with these filters: industry + size + role + the event city (or extended geography if relevant).
+6. **Google Maps for B2B local:** specific industry + zip code (e.g., "San Diego roofing contractor 92127").
 
 ## Output
 

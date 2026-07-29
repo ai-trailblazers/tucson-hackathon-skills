@@ -1,6 +1,6 @@
 ---
 name: milestone-tracker
-description: Initialize and maintain milestones.md for the team — a single file tracking the 6 leaderboard milestones (page-live, experiment, customer-conversation, signup, payment, skill-published) with status, time, and proof links. Use Day 1 morning to bootstrap, then any time the team hits a new milestone. Triggers: "track our milestones", "what have we hit so far", "log milestone", "show our progress". Pairs with log-milestone (in telemetry plugin) — milestones.md is the local mirror of the central leaderboard.
+description: Initialize and maintain milestones.md for the team — a single file tracking your event's leaderboard milestones with status, time, and proof links. Categories come from the event config, not a fixed list. Use Day 1 morning to bootstrap, then any time the team hits a new milestone. Triggers: "track our milestones", "what have we hit so far", "log milestone", "show our progress". Pairs with log-milestone (in telemetry plugin) — milestones.md is the local mirror of the central leaderboard.
 ---
 
 # milestone-tracker
@@ -15,29 +15,39 @@ Hackathon-original. Writes `milestones.md` in the team's repo. Mirrors the centr
 
 ## Output
 
+**Read the event's categories first.** They differ per hackathon — get them from
+`~/.hackathon/team.json` (written by `/hackathon-setup`) or:
+
+```bash
+curl -sS "$HACKATHON_API/config" -H "Authorization: Bearer $HACKATHON_API_KEY" | jq -r '.categories[] | "\(.id) — \(.description)"'
+```
+
+Build one row per category. Never write a category the event doesn't define.
+
 `milestones.md`:
 
 ```markdown
 # Milestones — <team name>
+**Event:** <event_name from team.json>
 **Started:** <iso>
 **Project:** <name>
 
 | # | Milestone | Status | When | Evidence | Logged to leaderboard |
 |---|-----------|--------|------|----------|----------------------|
-| 1 | page-live | ✅ | 2026-05-23 14:22 | https://… | ✅ event E-007 |
-| 2 | experiment (first) | ✅ | 2026-05-23 18:00 | experiments.md#exp-1 | ✅ |
-| 3 | customer-conversation (first) | ⬜ | — | — | — |
-| 4 | signup (first) | ⬜ | — | — | — |
-| 5 | payment (first) | ⬜ | — | — | — |
-| 6 | skill-published (first) | ⬜ | — | — | — |
+| 1 | <category 1 id> (first) | ✅ | 2026-08-01 14:22 | https://… | ✅ event rec… |
+| 2 | <category 2 id> (first) | ⬜ | — | — | — |
+| … | one row per category from /config | ⬜ | — | — | — |
+```
 
 ## Stretch milestones
 | # | Type | Count toward leaderboard | Notes |
 |---|------|--------------------------|-------|
-| - | 2nd customer-conversation | yes | |
-| - | 2nd experiment | yes | |
-| - | 1st verified payment | yes — biggest weight | |
+| - | 2nd of any category | yes | every verified milestone counts |
+| - | 3rd of any category | yes | |
 ```
+
+Repeat milestones count. Unless your event says otherwise, each verified
+milestone is worth the same — check `/config` rather than assuming a weighting.
 
 ## Rules
 

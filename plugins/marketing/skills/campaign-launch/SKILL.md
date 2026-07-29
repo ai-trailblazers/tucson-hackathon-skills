@@ -21,7 +21,7 @@ Refuse to launch unless:
 | Personal LinkedIn post | Founder has 500+ connections in ICP | $0 | <1h to live |
 | Hand-DM 20 ICP prospects | You can name them by hand | $0 | 2-3h |
 | Targeted Reddit/Discord post | Active niche community exists | $0 | 1h, depends on mod |
-| Tucson-local in-person (IDA, meetups) | Local-relevant product | $0 | event timing |
+| Local in-person (the venue, nearby meetups) | Local-relevant product | $0 | event timing |
 | Meta/Google Ads | Wide-funnel B2C or proven landing page | $50-200 | 2-4h to set up |
 | Cold email (CAN-SPAM compliant) | B2B, you have a clean list | $0 | 2h |
 

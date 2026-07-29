@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
-  "name": "tucson-hackathon",
-  "description": "Curated Claude Code skills for founders launching real businesses in a weekend. Built for AI Hackathon 3 (Tucson, May 23-24, 2026).",
-  "version": "0.3.0",
+  "name": "hackathon-skills",
+  "description": "Curated Claude Code skills for AI Trailblazers hackathons. Teams work alongside AI teammates on real projects over a weekend; the telemetry plugin scores their milestones on the event leaderboard. Event-agnostic \u2014 one API key decides which hackathon you are at.",
+  "version": "0.4.0",
   "owner": {
     "name": "AI Trailblazers",
     "email": "hello@aitrailblazers.org"
@@ -14,17 +14,27 @@
     {
       "name": "telemetry",
       "source": "./telemetry",
-      "description": "Required base plugin. Registers your team, detects milestone signals from your shell activity, and routes confirmed events to the central leaderboard. Install this first.",
+      "description": "Required base plugin. Discovers your event from your API key, registers your team, detects milestone signals from your shell activity, and routes confirmed events to the leaderboard. Install this first.",
       "category": "operations",
-      "keywords": ["telemetry", "leaderboard", "milestones", "hackathon-core"],
+      "keywords": [
+        "telemetry",
+        "leaderboard",
+        "milestones",
+        "hackathon-core"
+      ],
       "license": "MIT"
     },
     {
       "name": "landing-pages",
       "source": "./landing-pages",
-      "description": "Ship a live, branded landing page in under an hour — fake-door pages, conversion audits, one-command deploy.",
+      "description": "Ship a live, branded landing page in under an hour \u2014 fake-door pages, conversion audits, one-command deploy.",
       "category": "growth",
-      "keywords": ["landing-page", "deploy", "conversion", "fake-door"],
+      "keywords": [
+        "landing-page",
+        "deploy",
+        "conversion",
+        "fake-door"
+      ],
       "license": "MIT"
     },
     {
@@ -32,15 +42,27 @@
       "source": "./sales",
       "description": "Find prospects, write outreach, run discovery calls, and collect your first payment.",
       "category": "growth",
-      "keywords": ["sales", "outreach", "payments", "stripe", "cold-dm"],
+      "keywords": [
+        "sales",
+        "outreach",
+        "payments",
+        "stripe",
+        "cold-dm"
+      ],
       "license": "MIT"
     },
     {
       "name": "marketing",
       "source": "./marketing",
-      "description": "Positioning, SEO, paid ads, and launch posts that move customer-conversation and experiment metrics.",
+      "description": "Positioning, SEO, paid ads, and launch posts that move your outreach and experiment milestones.",
       "category": "growth",
-      "keywords": ["marketing", "positioning", "seo", "ads", "launch"],
+      "keywords": [
+        "marketing",
+        "positioning",
+        "seo",
+        "ads",
+        "launch"
+      ],
       "license": "MIT"
     },
     {
@@ -48,7 +70,13 @@
       "source": "./product",
       "description": "Turn an idea into testable hypotheses, scope an MVP, and decide pivot-or-persist on a clock.",
       "category": "product",
-      "keywords": ["product", "hypothesis", "experiment", "prd", "mvp"],
+      "keywords": [
+        "product",
+        "hypothesis",
+        "experiment",
+        "prd",
+        "mvp"
+      ],
       "license": "MIT"
     },
     {
@@ -56,7 +84,12 @@
       "source": "./research",
       "description": "Customer interviews, competitor scans, market sizing, and transcript-to-insight extraction.",
       "category": "research",
-      "keywords": ["research", "customer-interviews", "jtbd", "market-sizing"],
+      "keywords": [
+        "research",
+        "customer-interviews",
+        "jtbd",
+        "market-sizing"
+      ],
       "license": "MIT"
     },
     {
@@ -64,7 +97,13 @@
       "source": "./content",
       "description": "Brand voice, LinkedIn posts, newsletters, decks, and a demo-day narrative built from your logs.",
       "category": "content",
-      "keywords": ["content", "brand-voice", "linkedin", "newsletter", "pitch"],
+      "keywords": [
+        "content",
+        "brand-voice",
+        "linkedin",
+        "newsletter",
+        "pitch"
+      ],
       "license": "MIT"
     },
     {
@@ -72,7 +111,13 @@
       "source": "./dev",
       "description": "Frontend scaffolds, payment-link wiring, deploys, MCP integrations, and the ngrok AI Gateway bootstrap.",
       "category": "engineering",
-      "keywords": ["dev", "deploy", "mcp", "ngrok", "frontend"],
+      "keywords": [
+        "dev",
+        "deploy",
+        "mcp",
+        "ngrok",
+        "frontend"
+      ],
       "license": "MIT"
     },
     {
@@ -80,31 +125,50 @@
       "source": "./operations",
       "description": "Milestones, scheduling, expense tracking, status updates, and sponsor handoff docs.",
       "category": "operations",
-      "keywords": ["operations", "planning", "status-updates", "scheduling"],
+      "keywords": [
+        "operations",
+        "planning",
+        "status-updates",
+        "scheduling"
+      ],
       "license": "MIT"
     },
     {
       "name": "skill-builder",
       "source": "./skill-builder",
-      "description": "Write a new Claude Code skill and open a PR back to this repo. Triggers the skill-published leaderboard milestone.",
+      "description": "Write a new Claude Code skill and open a PR back to this repo \u2014 a shipped, reusable asset.",
       "category": "operations",
-      "keywords": ["skills", "contribute", "meta"],
+      "keywords": [
+        "skills",
+        "contribute",
+        "meta"
+      ],
       "license": "MIT"
     },
     {
       "name": "ngrok",
       "source": "./ngrok",
-      "description": "ngrok skills for AI Hackathon 3: redeem the $10 hackathon credit, route LLM calls through the AI Gateway (OpenAI + Anthropic, with managed credits or BYOK), expose your MCP server safely with an Anthropic IP allowlist, and inspect traffic. For plain non-AI tunneling, pair with the official ngrok/agent-skills repo.",
+      "description": "ngrok skills for AI Trailblazers hackathons: redeem the hackathon credit, route LLM calls through the AI Gateway (OpenAI + Anthropic, with managed credits or BYOK), expose your MCP server safely with an Anthropic IP allowlist, and inspect traffic. For plain non-AI tunneling, pair with the official ngrok/agent-skills repo.",
       "category": "engineering",
-      "keywords": ["ngrok", "ai-gateway", "mcp", "tunnel", "llm-router"],
+      "keywords": [
+        "ngrok",
+        "ai-gateway",
+        "mcp",
+        "tunnel",
+        "llm-router"
+      ],
       "license": "MIT"
     },
     {
       "name": "coaches",
       "source": "./coaches",
-      "description": "Coach-only plugin. Verifies team-submitted milestones and logs coach-witnessed events. Do NOT install on team machines.",
+      "description": "Mentor-only plugin. Verifies team-submitted milestones and logs mentor-witnessed events. Do NOT install on team machines.",
       "category": "operations",
-      "keywords": ["coach", "verify", "leaderboard"],
+      "keywords": [
+        "coach",
+        "verify",
+        "leaderboard"
+      ],
       "license": "MIT"
     }
   ]

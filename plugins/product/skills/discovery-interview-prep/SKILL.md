@@ -78,7 +78,7 @@ Append to `conversations.md`:
 - Next: <action>
 ```
 
-Writing to `conversations.md` triggers the telemetry hook → `/confirm-milestone` will offer to log this as a `customer-conversation` event.
+Writing to `conversations.md` triggers the telemetry hook → `/confirm-milestone` will offer to log it under whichever category your event uses for talking to a real person.
 
 ## Anti-patterns to flag mid-script
 

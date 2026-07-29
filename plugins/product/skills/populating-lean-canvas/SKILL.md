@@ -15,11 +15,11 @@ Hackathon fork of the BB product management skill. Writes to `lean-canvas.md` in
 
 ## The 9 boxes (fill in this order)
 
-1. **Customer Segments** — who specifically. "SMB owners" is too broad. "Tucson restaurant owners with 2-10 employees" is workable. Early-adopter sub-segment listed separately.
+1. **Customer Segments** — who specifically. "SMB owners" is too broad. "Restaurant owners with 2-10 employees in your city" is workable. Early-adopter sub-segment listed separately.
 2. **Problem** — top 1-3 problems for this segment. Existing alternatives in 1 line each.
 3. **Unique Value Proposition (UVP)** — one sentence. Why this is different and worth paying for.
 4. **Solution** — top 3 features. NOT a feature list — the riskiest 3.
-5. **Channels** — how customers find you. Hackathon: prefer channels you can run in 48h (Tucson local communities, LinkedIn DMs, in-person at IDA, etc.)
+5. **Channels** — how customers find you. Hackathon: prefer channels you can run in 48h (local communities, LinkedIn DMs, in-person at the venue, etc.)
 6. **Revenue Streams** — how you make money. Specific: "$49/mo subscription" beats "freemium."
 7. **Cost Structure** — what running this costs.
 8. **Key Metrics** — the 1-3 numbers you'd watch in week 1 to know it's working.

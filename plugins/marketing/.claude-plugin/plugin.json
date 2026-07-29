@@ -1,10 +1,19 @@
 {
   "name": "marketing",
-  "description": "Positioning, SEO, paid ads, and launch posts that move customer-conversation and experiment metrics.",
+  "description": "Positioning, SEO, paid ads, and launch posts that move your outreach and experiment milestones.",
   "version": "0.1.0",
-  "author": { "name": "AI Trailblazers", "email": "hello@aitrailblazers.org" },
-  "homepage": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
-  "repository": "https://github.com/ai-trailblazers/tucson-hackathon-skills",
+  "author": {
+    "name": "AI Trailblazers",
+    "email": "hello@aitrailblazers.org"
+  },
+  "homepage": "https://github.com/ai-trailblazers/hackathon-skills",
+  "repository": "https://github.com/ai-trailblazers/hackathon-skills",
   "license": "MIT",
-  "keywords": ["marketing", "positioning", "seo", "ads", "launch"]
+  "keywords": [
+    "marketing",
+    "positioning",
+    "seo",
+    "ads",
+    "launch"
+  ]
 }

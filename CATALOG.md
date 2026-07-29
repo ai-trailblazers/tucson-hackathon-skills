@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Curated for AI Hackathon 3 (Tucson, May 23–24, 2026). Every entry has been scouted from public sources or proposed for original authoring. Verdicts assume the user is a non-technical or semi-technical founder with 48 hours.
+Curated for AI Trailblazers hackathons. Every entry has been scouted from public sources or proposed for original authoring. Verdicts assume the user is a non-technical or semi-technical participant with 48 hours.
 
 **Legend** — License: ✅ MIT/Apache/permissive · ⚠️ custom/restrictive · ❌ no LICENSE file (all-rights-reserved by default) · 🟦 bundled with Claude Code · 🆕 to be authored
 
@@ -31,7 +31,7 @@ That 9-skill chain hits all four judging criteria (experiments / convos / paymen
 | Skill | Source | License | Verdict | Status |
 |-------|--------|---------|---------|--------|
 | `hackathon-setup` | original | ✅ MIT | One-time team registration with the central leaderboard. Run before anything else. | 🟢 vendored |
-| `log-milestone` | original | ✅ MIT | Self-report a milestone (page-live, experiment, customer-conversation, signup, payment, skill-published). Flagged for coach verification. | 🟢 vendored |
+| `log-milestone` | original | ✅ MIT | Self-report a milestone using your event's own categories (read from `/config`). Flagged for mentor verification. | 🟢 vendored |
 | `confirm-milestone` | original | ✅ MIT | Hook-driven. Asks before logging detected signals (Stripe link, deploy, writes to conversations.md/experiments.md/insights.md). | 🟢 vendored |
 
 ## 🛬 Landing Pages
@@ -90,7 +90,7 @@ That 9-skill chain hits all four judging criteria (experiments / convos / paymen
 | `tam-sam-som-calculator` | deanpeters/PM-Skills | ⚠️ | Market sizing for pitch deck | 🟡 linked |
 | `company-research` | deanpeters/PM-Skills | ⚠️ | Structured competitive brief | 🟡 linked |
 | `Deep-Research-skills` | [Weizhena/Deep-Research-skills](https://github.com/Weizhena/Deep-Research-skills) | ✅ MIT | Human-in-loop deep research, lower hallucination | 🟡 linked → vendor |
-| `tucson-customer-finder` | original | ✅ MIT | Local venue + online community ranked list for finding 20 customers | 🟢 vendored |
+| `customer-finder` | original | ✅ MIT | Local venue + online community ranked list for finding 20 customers | 🟢 vendored |
 | `conversation-to-insight` | original | ✅ MIT | Transcript → JTBD quotes, pain score, WTP signals, pattern alarm | 🟢 vendored |
 
 ## ✍️ Content
@@ -146,7 +146,7 @@ That 9-skill chain hits all four judging criteria (experiments / convos / paymen
 
 | Skill | Source | License | Verdict | Status |
 |-------|--------|---------|---------|--------|
-| `creating-skills` | original | ✅ MIT | Write + PR a new skill back to this repo, triggers `skill-published` leaderboard milestone | 🟢 vendored |
+| `creating-skills` | original | ✅ MIT | Write + PR a new skill back to this repo, triggers a shipped-asset leaderboard milestone | 🟢 vendored |
 
 ## 👨‍🏫 Coaches (coach-only — do NOT install on team machines)
 

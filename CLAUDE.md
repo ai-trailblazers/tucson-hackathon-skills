@@ -1,17 +1,25 @@
 # Repo guide for Claude Code
 
-This repo is a curated directory of Claude Code skills for the Tucson AI Hackathon 3 (May 23–24, 2026) and similar "ship-a-business-by-Sunday" events.
+This repo is a curated directory of Claude Code skills for AI Trailblazers hackathons. It is **event-agnostic**: one marketplace serves every event, and the telemetry plugin discovers which hackathon a participant is at from their API key.
 
 ## What goes here
 
-Skills that help non-technical or semi-technical founders move on the four judging metrics:
+Skills that help non-technical or semi-technical teams move on what their event actually scores. Milestone categories are defined per event on the server (`GET /config`), not in this repo — a business-launch hackathon and a nonprofit mission hackathon score different things.
 
-1. Experiments run
-2. Customer conversations
-3. Anyone pay
-4. AI-teammate collaboration
+The durable shape of what belongs:
+
+1. Running a real experiment
+2. Talking to a real person outside the team
+3. Getting something concrete committed
+4. Shipping something reusable and reachable
+5. Working well alongside AI teammates
 
 If a candidate skill doesn't plausibly serve one of those, it doesn't belong.
+
+**Never hard-code milestone category names in a skill.** Read them from
+`~/.hackathon/team.json` or `GET /config`. A skill that lists categories inline
+breaks at the next event — that is the exact bug this repo was restructured to
+remove.
 
 ## Layout
 
