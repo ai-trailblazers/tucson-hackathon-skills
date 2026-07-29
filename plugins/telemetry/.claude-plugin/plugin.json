@@ -6,5 +6,6 @@
     "name": "AI Trailblazers",
     "email": "hello@aitrailblazers.org"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "hooks": "./hooks/hooks.json"
 }
