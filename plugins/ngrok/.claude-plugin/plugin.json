@@ -2,6 +2,9 @@
   "name": "ngrok",
   "version": "0.1.0",
   "description": "ngrok skills for AI Trailblazers hackathons \u2014 redeem your credit, route LLM calls through the AI Gateway, expose your MCP server safely, and inspect traffic. For basic tunneling (no AI), install the official ngrok/agent-skills repo alongside this plugin.",
-  "author": "AI Trailblazers",
+  "author": {
+    "name": "AI Trailblazers",
+    "email": "hello@aitrailblazers.org"
+  },
   "license": "MIT"
 }
