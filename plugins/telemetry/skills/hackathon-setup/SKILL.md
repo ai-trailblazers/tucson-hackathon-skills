@@ -70,6 +70,10 @@ hand-editing Airtable.
    "My team isn't listed yet" as the last option. Do not describe joining as an
    advanced or secondary path — it is what most people should pick.
 
+   `team_number` is an empty string for teams that have no table assigned yet.
+   Label those with the team name alone — never `Table  — Tidepool`, which
+   reads like a bug and makes people doubt they picked the right row.
+
    **Lead with the table number.** At check-in a participant is told which table
    they are at and sent there. That number is often the only thing they know for
    certain: they may not know the team's short name, and they almost certainly do
@@ -109,6 +113,7 @@ hand-editing Airtable.
 
    Only `team_name` is required. Send `team_number`, `project_name`, `members`,
    and `contact_email` when you have them; omit them when you don't.
+
    Server returns `{"team_id": "rec...", "event": "sd-2026-08"}`. The server stamps
    the event onto your team record from the key — you never send it.
 
@@ -133,6 +138,13 @@ hand-editing Airtable.
      "categories": []
    }
    ```
+
+   `team_id`, `team_name`, and `event` are always present. The rest may be
+   empty or absent — a participant who joined a team the organizers had not
+   finished filling in, or who registered knowing only a name, genuinely does
+   not have them. Write what you have and leave the rest out rather than
+   inventing placeholders; `log-milestone` reads only `team_id`, `categories`,
+   and `board_url`.
 
    The API key itself lives in `$HACKATHON_API_KEY` (set by the participant from
    the Guide), not in this file.
