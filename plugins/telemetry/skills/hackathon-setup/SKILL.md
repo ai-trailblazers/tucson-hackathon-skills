@@ -121,13 +121,22 @@ hand-editing Airtable.
    seconds. Re-fetch `/teams` and join that team instead of picking a different
    name.
 
-6. **Write `~/.hackathon/team.json` (mode 0600)**, caching the event config so
+6. **Ask the one question about the person, not the team:** "What name should
+   your mentor see on the milestones you log?" First name is fine.
+
+   Asked once here so `/log-milestone` never has to. It goes onto each milestone
+   as `Logged By`, so a mentor arriving at a table of five knows who to ask about
+   a claim. It is not an identity check and is never verified — a participant who
+   would rather not give one can skip it, and logging still works.
+
+7. **Write `~/.hackathon/team.json` (mode 0600)**, caching the event config so
    `log-milestone` and `confirm-milestone` don't have to re-fetch it:
    ```json
    {
      "team_id": "rec...",
      "team_number": "...",
      "team_name": "...",
+     "member_name": "...",
      "project_name": "...",
      "members": "...",
      "contact_email": "...",
@@ -149,7 +158,7 @@ hand-editing Airtable.
    The API key itself lives in `$HACKATHON_API_KEY` (set by the participant from
    the Guide), not in this file.
 
-7. **Confirm:** print whether you joined or registered, the `team_id`, the event
+8. **Confirm:** print whether you joined or registered, the `team_id`, the event
    name, the `board_url` from `/config`, and the next-step nudge: "Use
    `/log-milestone` whenever you ship something. Mentors verify throughout the
    event." If you registered, add: "You are the first on your team — tell your

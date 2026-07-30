@@ -38,6 +38,14 @@ Self-report a milestone. Logged immediately, flagged for mentor verification.
    - Evidence URL (optional but speeds mentor verification — a deployed URL, a PR
      link, a transcript, a written commitment)
 
+   Do **not** ask who is logging it. Read `member_name` from
+   `~/.hackathon/team.json`, which `hackathon-setup` captured once. This skill
+   runs many times a day per team, and a question asked on every single run is
+   the one people start working around.
+
+   If `member_name` is missing — someone who set up before this existed — ask
+   once, then write it back into `team.json` so it is never asked again.
+
 4. **POST to /event:**
    ```bash
    curl -sS -X POST "$HACKATHON_API/event" \
@@ -47,10 +55,15 @@ Self-report a milestone. Logged immediately, flagged for mentor verification.
        \"team_id\": \"$(jq -r .team_id ~/.hackathon/team.json)\",
        \"event_type\": \"<category id>\",
        \"source\": \"self_reported\",
+       \"logged_by\": \"$(jq -r '.member_name // empty' ~/.hackathon/team.json)\",
        \"notes\": \"...\",
        \"evidence_url\": \"...\"
      }"
    ```
+
+   `logged_by` is optional server-side. Never block a milestone on it — a team
+   that cannot log because nobody typed a name is strictly worse than a
+   milestone with no name on it.
 
    If the server replies `unknown event_type "..." for <event>. Allowed: ...`, you
    sent a category this event does not use. Re-read `/config` and ask again with the
