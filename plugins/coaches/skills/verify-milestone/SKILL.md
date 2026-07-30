@@ -63,7 +63,16 @@ currently split.
 curl -sS "$HACKATHON_API/team/<team_id>/pending" \
   -H "Authorization: Bearer $HACKATHON_API_KEY"
 ```
-Then walk each one with the mentor: show notes + evidence URL, ask verify/reject.
+Then walk each one with the mentor: show `Logged By`, notes, and evidence URL,
+then ask verify/reject.
+
+Lead with `Logged By`. It names the team member who logged the claim, and it is
+the difference between asking "who shipped this?" across a table of five and
+walking straight to the right person. Milestones logged before this existed, and
+anyone who declined to give a name, will have it blank — say "logged by (not
+given)" rather than hiding the milestone or guessing. It is self-reported and
+never verified, so treat it as a pointer to a conversation, not as proof of who
+did the work.
 
 ### Log a mentor-witnessed event directly
 
