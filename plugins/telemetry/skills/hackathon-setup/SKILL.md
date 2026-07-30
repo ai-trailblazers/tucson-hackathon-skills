@@ -56,17 +56,30 @@ hand-editing Airtable.
    curl -sS "$HACKATHON_API/teams" -H "Authorization: Bearer $HACKATHON_API_KEY"
    ```
 
-   Returns the teams already on the board for this event:
+   Returns the teams already on the board for this event, ordered by table
+   number:
    ```json
    {"event": "sd-2026-08", "teams": [
-     {"team_id": "rec...", "team_name": "Tidepool", "project": "Shelter intake", "members": "Ana, Ben"}
+     {"team_id": "rec...", "team_number": "3", "team_name": "Tidepool", "project": "Shelter intake", "members": "Ana, Ben"}
    ]}
    ```
 
 4. **If any teams exist, offer to join one first.** Present them with
-   AskUserQuestion, showing team name and project so the user recognises theirs,
-   with "My team isn't listed yet" as the last option. Do not describe joining as
-   an advanced or secondary path — it is what most people should pick.
+   AskUserQuestion in the order the server returned them, labelled
+   `Table <team_number> — <team_name>` with the project as the description, and
+   "My team isn't listed yet" as the last option. Do not describe joining as an
+   advanced or secondary path — it is what most people should pick.
+
+   `team_number` is an empty string for teams that have no table assigned yet.
+   Label those with the team name alone — never `Table  — Tidepool`, which
+   reads like a bug and makes people doubt they picked the right row.
+
+   **Lead with the table number.** At check-in a participant is told which table
+   they are at and sent there. That number is often the only thing they know for
+   certain: they may not know the team's short name, and they almost certainly do
+   not know the nonprofit's full project name. Ask "what table are you at?"
+   rather than "what is your team called?", and match on the number when they
+   give you one. Fall back to the name only for teams with no number.
 
    On joining, skip registration entirely. You already have the `team_id`; go
    straight to step 6. Nothing is written to the server, because the team record
@@ -79,19 +92,28 @@ hand-editing Airtable.
    ("Tidepool" vs "Team Tidepool"), ask before registering. Nine times out of ten
    it is the same team and a teammate typed it slightly differently.
 
-5. **Register the team (first person only).** Collect via AskUserQuestion, one
-   question at a time:
-   - Team Name (required, single line)
-   - Project Name (required, single line — what you're building)
-   - Team Members (required, comma-separated names)
-   - Contact Email (required, one person who reads it)
+5. **Register the team (first person only).** This is rare. Organizers load the
+   teams onto the board before check-in, so reaching this step usually means
+   something is off. Say so plainly: "I don't see any teams on the board yet,
+   which is unusual. If you're sitting at a numbered table, grab a mentor before
+   registering, so you don't become a second copy of a team that already exists."
+
+   Then ask for **the team name only**. Offer table number, project, members, and
+   contact email as optional, and accept "I don't know" for every one of them —
+   an organizer fills those in later from the check-in sheet. Never block
+   registration on a detail the participant has no way to know. A made-up project
+   name is worse than a blank one, because it looks authoritative on the board.
 
    ```bash
    curl -sS -X POST "$HACKATHON_API/register" \
      -H "Authorization: Bearer $HACKATHON_API_KEY" \
      -H "Content-Type: application/json" \
-     -d "{\"team_name\": \"...\", \"project_name\": \"...\", \"members\": \"...\", \"contact_email\": \"...\"}"
+     -d "{\"team_name\": \"...\", \"team_number\": \"...\"}"
    ```
+
+   Only `team_name` is required. Send `team_number`, `project_name`, `members`,
+   and `contact_email` when you have them; omit them when you don't.
+
    Server returns `{"team_id": "rec...", "event": "sd-2026-08"}`. The server stamps
    the event onto your team record from the key — you never send it.
 
@@ -104,6 +126,7 @@ hand-editing Airtable.
    ```json
    {
      "team_id": "rec...",
+     "team_number": "...",
      "team_name": "...",
      "project_name": "...",
      "members": "...",
@@ -115,6 +138,13 @@ hand-editing Airtable.
      "categories": []
    }
    ```
+
+   `team_id`, `team_name`, and `event` are always present. The rest may be
+   empty or absent — a participant who joined a team the organizers had not
+   finished filling in, or who registered knowing only a name, genuinely does
+   not have them. Write what you have and leave the rest out rather than
+   inventing placeholders; `log-milestone` reads only `team_id`, `categories`,
+   and `board_url`.
 
    The API key itself lives in `$HACKATHON_API_KEY` (set by the participant from
    the Guide), not in this file.
@@ -141,3 +171,11 @@ hand-editing Airtable.
 - `/teams` unreachable but `/config` worked → say so, and let the user choose
   between retrying and registering. Warn that registering blind may duplicate a
   team a teammate already made.
+- The participant knows their table number but no team on the list has one →
+  the board was loaded before table assignments were made. Show the list by name
+  and project instead, and tell an organizer to re-run the roster sync.
+- `/teams` comes back empty at an event that has already started → do not quietly
+  fall through to registration for everyone who asks. Say the board looks
+  unloaded and point at a mentor. Six participants each registering their own
+  version of the same team is far more expensive to untangle than one person
+  waiting two minutes.
